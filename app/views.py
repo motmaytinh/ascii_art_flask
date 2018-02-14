@@ -20,17 +20,17 @@ def index():
 def upload():
     if request.method == 'POST':
         file = request.files['image']
+        file.filename = "new.jpg"
         f = os.path.join("/" + app.config['UPLOAD_FOLDER'], file.filename)
         
         # add your custom code to check that the uploaded file is a valid image and not a malicious file (out-of-scope for this post)
         file.save(f)
         
         return render_template('show.html',
-                           title='Home')
+                           title='Home', path = f)
 
     return render_template('upload.html')
 
-@app.route('/uploads/<filename>')
-def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'],
-                               filename)
+@app.route('/show')
+def show(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)

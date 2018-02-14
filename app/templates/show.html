@@ -2,10 +2,5 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data" >
-    <span class="btn btn-default btn-file">
-      Browse <input type="file" name="image">
-    </span>
-  <input type="submit" value="Upload your image" class="btn btn-primary">
-</form>
+<img src={{ path }} alt="User Image">
 {% endblock %}
