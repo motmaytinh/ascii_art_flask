@@ -1,0 +1,23 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - ASCII Art</title>
+    {% else %}
+    <title>ASCII Art</title>
+    {% endif %}
+  </head>
+  <body>
+    <div>ASCII Art: <a href="/index"> Home </a><a href="/upload"> Upload </a></div>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }} </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </body>
+</html>
