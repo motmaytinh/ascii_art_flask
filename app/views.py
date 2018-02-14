@@ -4,7 +4,7 @@ from app import app
 from .ASCII_Art import ascii
 
 UPLOAD_FOLDER = os.path.dirname(__file__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER + "/tmp"
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER + "/static"
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 @app.route('/')
@@ -22,15 +22,14 @@ def upload():
     if request.method == 'POST':
         file = request.files['image']
         file.filename = "new.jpg"
-        f = os.path.join("/" + app.config['UPLOAD_FOLDER'], file.filename)
+        f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         
         # add your custom code to check that the uploaded file is a valid image and not a malicious file (out-of-scope for this post)
         file.save(f)
         # o = os.path.join("/" + app.config['UPLOAD_FOLDER'], "out.txt")
-        o = os.path.join("/" + app.config['UPLOAD_FOLDER'], "out.txt")
+        o = os.path.join(app.config['UPLOAD_FOLDER'], "out.txt")
         ascii(f, o)
 
-        return render_template('show.html',
-                           title='Home')
+        return render_template('show.html', title='Home', path = f)
 
     return render_template('upload.html')

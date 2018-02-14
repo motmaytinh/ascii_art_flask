@@ -4,7 +4,8 @@
 {% block content %}
 <!-- <iframe src="{{ path }}">
 </iframe> -->
-<!-- <iframe src="/static/out.txt" height="100%" width="100%" frameborder="0">
-</iframe> -->
-<img src="/tmp/new.jpg">
+    <iframe src="{{ url_for('static', filename='out.txt') }}" height="100%" width="100%" frameborder="0">
+    </iframe>
+    <!-- <img src="/tmp/new.jpg"> -->
+    <!-- <img src="{{ url_for('static', filename='new.jpg') }}"> -->
 {% endblock %}
