@@ -1,10 +1,10 @@
 import os
-from flask import Flask, render_template, request, send_from_directory
+from flask import Flask, render_template, request, send_from_directory, redirect, url_for
 from app import app
 from .ASCII_Art import ascii
 
 UPLOAD_FOLDER = os.path.dirname(__file__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER + "/static"
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER + "/static/images"
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 @app.route('/')
@@ -30,6 +30,10 @@ def upload():
         o = os.path.join(app.config['UPLOAD_FOLDER'], "out.txt")
         ascii(f, o)
 
-        return render_template('show.html', title='Home', path = f)
+        return redirect(url_for('show'))
 
     return render_template('upload.html')
+
+@app.route('/show')
+def show():
+    return render_template('show.html')
