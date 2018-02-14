@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 from app import app
 
 UPLOAD_FOLDER = os.path.dirname(__file__)
@@ -29,3 +29,8 @@ def upload():
                            title='Home')
 
     return render_template('upload.html')
+
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'],
+                               filename)
