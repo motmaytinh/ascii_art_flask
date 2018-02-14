@@ -1,5 +1,5 @@
 # ASCII art
-A flask app that turn image into ASCII art
+A flask app that turn image into ASCII art.
 This app has been deployed to https://motmaytinh.herokuapp.com
 
 ## Getting Started
