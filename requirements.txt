@@ -3,6 +3,7 @@ Django==2.0.2
 Flask==0.12.2
 Flask-Uploads==0.2.1
 Flask-WTF==0.14.2
+gunicorn==19.7.1
 image==1.5.17
 itsdangerous==0.24
 Jinja2==2.10
