@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, request
 from app import app
 
-UPLOAD_FOLDER = os.path.basename('uploads')
+UPLOAD_FOLDER = os.path.basename('tmp')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
