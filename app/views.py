@@ -4,7 +4,7 @@ from app import app
 from .ASCII_Art import ascii
 
 UPLOAD_FOLDER = os.path.dirname(__file__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER + "/static"
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER + "/tmp"
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 @app.route('/')
