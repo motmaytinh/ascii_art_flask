@@ -4,6 +4,7 @@ from app import app
 
 UPLOAD_FOLDER = os.path.dirname(__file__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 @app.route('/')
 def hello_world():
