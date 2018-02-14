@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, request
 from app import app
 
-UPLOAD_FOLDER = os.path.basename('tmp')
+UPLOAD_FOLDER = os.path.dirname(__file__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
@@ -19,7 +19,7 @@ def index():
 def upload_file():
     if request.method == 'POST':
         file = request.files['image']
-        f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+        f = os.path.join("/" + app.config['UPLOAD_FOLDER'], file.filename)
         
         # add your custom code to check that the uploaded file is a valid image and not a malicious file (out-of-scope for this post)
         file.save(f)
