@@ -1,13 +1,20 @@
 <html>
   <head>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
     {% if title %}
-    <title>{{ title }} - ASCII Art</title>
+    <title>{{ title }} - motmaytinh</title>
     {% else %}
-    <title>ASCII Art</title>
+    <title>motmaytinh</title>
     {% endif %}
   </head>
   <body>
-    <div>ASCII Art: <a href="/index"> Home </a><a href="/upload"> Upload </a></div>
+      <!-- <a href="/index"> Home </a><a href="/upload"> Upload </a> -->
+    <div>
+      <nav>
+        <a id = "logo" href="#">motmaytinh</a>
+        <a href="/index">HOME</a>
+        <a href="/upload">ASCII</a>
+      </nav></div>
     <hr>
     {% with messages = get_flashed_messages() %}
       {% if messages %}

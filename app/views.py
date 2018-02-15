@@ -34,6 +34,7 @@ def upload():
 
     return render_template('upload.html')
 
-@app.route('/show')
+@app.route('/show', methods=['GET', 'POST'])
 def show():
-    return render_template('show.html')
+    if request.method == 'GET':
+        return render_template('show.html')
