@@ -1,5 +1,5 @@
 click==6.7
-Django==2.2.18
+Django==2.2.20
 Flask==1.0
 Flask-Uploads==0.2.1
 Flask-WTF==0.14.2
