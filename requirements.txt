@@ -1,6 +1,6 @@
 click==6.7
 Django==2.2.28
-Flask==1.0
+Flask==2.3.2
 Flask-Uploads==0.2.1
 Flask-WTF==0.14.2
 gunicorn==19.7.1
